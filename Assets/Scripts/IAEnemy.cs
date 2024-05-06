@@ -1,3 +1,4 @@
+//Modified by Saul Bello for FuzzyLogic - PRV0722 
 using JetBrains.Annotations;
 using System;
 using System.Collections;
@@ -48,7 +49,7 @@ public class IAEnemy : MonoBehaviour
 
     }
 
-    // Start is called before the first frame update
+
     void Start()
     {
         barra.VidaMaxima(Maxvida);
@@ -58,7 +59,7 @@ public class IAEnemy : MonoBehaviour
         StartCoroutine(Shoot());
 
     }
-    void ActDist()
+    void ActDist()//Metodo para actualizar y posteriormente fuzzyficar distancias
     {
         DistanceA = Vector3.Distance(this.gameObject.transform.position, BaseBalas.transform.position);
         DistanceV = Vector3.Distance(this.gameObject.transform.position, BaseVida.transform.position);
@@ -69,7 +70,7 @@ public class IAEnemy : MonoBehaviour
         ActDist();
         fuzzyLogic.ActDist(distance, DistanceA, DistanceV);
 
-        if (vida <= 0)
+        if (vida <= 0)//Boleano para reconocer cuando el jugador gana
         {
             Debug.Log("You Win");
             barra.VidaActual(0);
@@ -85,7 +86,7 @@ public class IAEnemy : MonoBehaviour
     }
 
 
-    public IEnumerator FuzzifyUpdate()
+    public IEnumerator FuzzifyUpdate()//Actualiza las FuzzyVariables cada 3 segundos
     {
         fuzzyLogic.ActVar(balas, Jugador.GetComponent<PlayerManager>().Vida, vida);
         fuzzyLogic.Fuzzify();
@@ -99,7 +100,7 @@ public class IAEnemy : MonoBehaviour
 
     //Fuzzy Actions and Desitions
     
-    public void FuzzyBrain()
+    public void FuzzyBrain()//Es el cerebro tras la toma de desiciones y logica que debe seguir para 
     {
         if (fuzzyLogic.fuzzyAmmo<45 && !PrioVida())
         {
@@ -167,10 +168,10 @@ public class IAEnemy : MonoBehaviour
             Huir();
         }
     }
-    bool PrioVida()
+    bool PrioVida()//Metodo booleano para determinar si es nescesario priorizar el curarse para poder seguir atacando
     {
         Debug.Log(fuzzyLogic.fuzzyHealth);
-        if (fuzzyLogic.fuzzyHealth <25)
+        if (fuzzyLogic.fuzzyHealth <60)
         {
             switch (fuzzyLogic.Vida)
             {
@@ -179,7 +180,6 @@ public class IAEnemy : MonoBehaviour
                 case FuzzyLogic.Distancia.MEDIO:
                     return true;
                 case FuzzyLogic.Distancia.LEJOS:
-
                     return false;
                 default:
                     Debug.Log("PrioVida Do Nothing");
@@ -193,7 +193,7 @@ public class IAEnemy : MonoBehaviour
         }
     }
 
-    public void VelHuida(float fuzzydata)
+    public void VelHuida(float fuzzydata)//Meotodo de Comprobacion de distancia para determinar una velocidad de huida o movimiento
     {
          if (fuzzydata == 50)
          {
@@ -251,7 +251,7 @@ public class IAEnemy : MonoBehaviour
         Debug.Log("Player");
     }
 
-    public void Locked()
+    public void Locked() // Funcion utilizada en caso de bloqueo de la IA en una esquina del mapa (solo utilizado en errores con corutinas)
     {
         curando = false;
         recargando = false;
@@ -320,7 +320,7 @@ public class IAEnemy : MonoBehaviour
     }
 
 
-    public IEnumerator Recharge()//
+    public IEnumerator Recharge()//Corrutina para recargar balas, es recursiva en caso de seguir "recargando"
     {
         if (balas < Maxbalas && recargando)
         {
@@ -343,7 +343,7 @@ public class IAEnemy : MonoBehaviour
 
     }
 
-    public IEnumerator Shoot()
+    public IEnumerator Shoot()//Corutina de Disparo
     {
         if (balas >0 && !recargando)
         {
@@ -369,7 +369,7 @@ public class IAEnemy : MonoBehaviour
 
     }
 
-    IEnumerator Healing()
+    IEnumerator Healing()//Corrutina de curacion 
     {
         if (curando)
         {
@@ -397,7 +397,7 @@ public class IAEnemy : MonoBehaviour
 
     }
 
-    public void GetDamage(float damage)
+    public void GetDamage(float damage)// Metodo de Recibir daño de la IA
     {
         if (danado)
         {
@@ -411,7 +411,7 @@ public class IAEnemy : MonoBehaviour
         }
     }
 
-    IEnumerator danao()
+    IEnumerator danao()//Una coorutina de pausa para evitar daño consecutivo
     {
         yield return new WaitForSeconds(fireRate);
         danado = false;

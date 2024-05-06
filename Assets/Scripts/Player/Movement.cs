@@ -1,3 +1,4 @@
+//Modified by Saul Bello for FuzzyLogic - PRV0722 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,9 +19,10 @@ public class Movement : MonoBehaviour
         Mov();
         
     }
+    
+    // Movimiento
     void Mov()
     {
-        // Movimiento
         float hor = Input.GetAxis("Horizontal");
         float ver = Input.GetAxis("Vertical");
 

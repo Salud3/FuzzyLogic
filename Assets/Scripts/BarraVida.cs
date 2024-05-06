@@ -1,3 +1,4 @@
+//Modified by Saul Bello for FuzzyLogic - PRV0722 
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -18,14 +19,14 @@ public class BarraVida : MonoBehaviour
         slider = GetComponent<Slider>();
     }
 
-    public void VidaMaxima(float vidaMaxima)
+    public void VidaMaxima(float vidaMaxima)//Metodo para determinar la vida maxima
     {
         Debug.Log(vidaMaxima);
         slider.maxValue = vidaMaxima;
         max = vidaMaxima;
     }
 
-    public void VidaActual(float vidaActual)
+    public void VidaActual(float vidaActual)//Metodo para actualizar la vida maxima
     {
         Debug.Log(vidaActual);
         slider.value = vidaActual;
@@ -39,10 +40,5 @@ public class BarraVida : MonoBehaviour
             MenuPausa.instance.menuPausa.SetActive(false);
 
         }
-    }
-
-    public void UpdateSlider(float cantidadVida)
-    {
-        VidaActual(cantidadVida);
     }
 }

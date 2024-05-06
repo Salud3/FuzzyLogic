@@ -1,4 +1,5 @@
- using System.Collections;
+//Modified by Saul Bello for FuzzyLogic - PRV0722 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -42,13 +43,13 @@ public class FuzzyLogic
         maxHealth = _MaxHealth;
 
     }
-    public void ActVar(int _ammo, float _vidaPlayer, float _vida)
+    public void ActVar(int _ammo, float _vidaPlayer, float _vida)//Metodo de actualizacion de estadisticas
     {
         ammo = _ammo;
         playerHealth = _vidaPlayer;
         health = _vida;
     }
-    public void ActDist(float _distancePlayer, float _distanceAmmo, float _distanceHealth)
+    public void ActDist(float _distancePlayer, float _distanceAmmo, float _distanceHealth)//Metodo de Actualizacion de Distancias
     {
         distancePlayer = _distancePlayer;
         distanceAmmo = _distanceAmmo;
@@ -70,10 +71,9 @@ public class FuzzyLogic
         Vida = distancia(fuzzydistanceHealth);
     }
     //rangos (Que tan cerca)
-    float FuzzyfyD(float distance)
+    float FuzzyfyD(float distance)//Metodo de fuzzyficacion de distancias
     {
 
-        //Debug.Log(distance);
         if (distance < 5) { return 100; }// 100 = Cerca
         else if (distance >= 3 && distance < 10) { return 50; }// 50 = Intermedio
         else { return 0; }// Lejos = 0
@@ -81,7 +81,7 @@ public class FuzzyLogic
 
     }
 
-    Distancia distancia(float distEv)
+    Distancia distancia(float distEv)//Metodo para cambiar las etiquedas de Distancia 
     {
         if (distEv < 50) {
         return Distancia.CERCA;
@@ -95,7 +95,7 @@ public class FuzzyLogic
     }
 
     //regla de 3
-    float FuzzifyV(float a, float maxValue) // rangos de 0 - 100
+    float FuzzifyV(float a, float maxValue) //Metodo de fuzzyficacion de rangos de 0 - 100
     {
         return (a*100)/ maxValue;
     }

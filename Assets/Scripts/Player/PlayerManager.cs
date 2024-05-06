@@ -1,3 +1,4 @@
+//Modified by Saul Bello for FuzzyLogic - PRV0722 
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -24,7 +25,7 @@ public class PlayerManager : MonoBehaviour
     {
         Logic();
     }
-    public void Logic()
+    public void Logic()//Logica de recuperacion de vida
     {
         if (healing)
         {
@@ -41,7 +42,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void Damage(float damage)
+    public void Damage(float damage)//Metodo para recibir daño
     {
         Debug.Log("Atacado daño recibido: " + damage);
         vida -= damage;
