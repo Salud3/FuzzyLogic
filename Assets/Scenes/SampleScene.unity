@@ -1387,9 +1387,9 @@ MonoBehaviour:
   proyectil: {fileID: 4690013073536581415, guid: ff0fa4293514be7479339c7543b18ee4,
     type: 3}
   barra: {fileID: 7339571210116842445}
-  vida: 200
-  Maxvida: 200
-  balas: 3
+  vida: 225
+  Maxvida: 225
+  balas: 15
   Maxbalas: 30
   distance: 0
   DistanceA: 0
@@ -5685,8 +5685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3545db5b9d6b15f42a4200e46910047b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 250
-  maxvida: 250
+  vida: 350
+  maxvida: 350
   healing: 0
   barra: {fileID: 7286789496603478986}
   Arma: {fileID: 733705041}
@@ -6401,7 +6401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.2316895, y: 0}
+  m_AnchoredPosition: {x: -1.2314453, y: 0}
   m_SizeDelta: {x: -1396.0754, y: -117.2493}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1897808898126687435
