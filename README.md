@@ -12,5 +12,6 @@ Este proyecto implementa el uso de una Inteligencia artificial basica para un ju
 * FuzzyLogic: Implementa la fuzzyficacion de varibales para la toma de decisiones de la IA
 
 /*Uso*/
+
 El uso de estos scripts es libre, por lo cual sientete libre de utilizarlos, se agradecen los creditos si es correspondiente
 
