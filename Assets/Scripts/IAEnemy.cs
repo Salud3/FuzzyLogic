@@ -257,8 +257,8 @@ public class IAEnemy : MonoBehaviour
         recargando = false;
         atacar = false;
         StopAllCoroutines();
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<Rigidbody>().ResetInertiaTensor();
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
         agent.ResetPath();
         agent.SetDestination(new Vector3(0,0,0));
         StartCoroutine(FuzzifyUpdate());
